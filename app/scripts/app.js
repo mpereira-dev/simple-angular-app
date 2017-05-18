@@ -27,4 +27,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  // Fix routing issue with Angular 1.6 
+  // https://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working/41213016#41213016
+  .config(['$locationProvider', function($locationProvider) {
+    $locationProvider.hashPrefix('');
+  }]);
