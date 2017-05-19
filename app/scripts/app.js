@@ -24,6 +24,12 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/employee', {
+        templateUrl: 'views/employee.html',
+        controller: 'EmployeeCtrl',
+        controllerAs: 'employee'
+      })
+      // TODO add a route to handle /employee/#
       .otherwise({
         redirectTo: '/'
       });
