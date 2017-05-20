@@ -1,10 +1,11 @@
-<div class="panel panel-default">
+<div class="panel panel-default" ng-controller="MainCtrl">
+  <div>{{ error }}</div>
   <div class="panel-heading">Employees</div>
   <table class="table">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Phone</th>
+        <th>Phone Number</th>
         <th>Location</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -15,28 +16,13 @@
         <td>{{ employee.firstName + " " + employee.lastName }}</td>
         <td>{{ employee.phoneNumber }}</td>
         <td>{{ employee.city + ", " + employee.state }}</td>
-        <td>
+        <td ng-click="edit(employee)">
           <span class="glyphicon glyphicon-edit" aria-hidden="false"></span>
         </td>
-        <td>
+        <td ng-click="delete(employee)">
           <span class="glyphicon glyphicon-trash" aria-hidden="false"></span>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
-<!-- <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div> -->

@@ -29,7 +29,11 @@ angular
         controller: 'EmployeeCtrl',
         controllerAs: 'employee'
       })
-      // TODO add a route to handle /employee/#
+      .when('/employee/:employeeURI', {
+        templateUrl: 'views/employee.html',
+        controller: 'EmployeeCtrl',
+        controllerAs: 'employee'
+      })
       .otherwise({
         redirectTo: '/'
       });

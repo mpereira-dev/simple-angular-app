@@ -1,7 +1,138 @@
+<div ng-controller="EmployeeCtrl" >
+	<div>{{ error }}</div>
+	<h2>Employee Details</h2>
+	<form novalidate class="form-horizontal" ng-submit="submit()" style="padding-bottom: 8em;" >
 
+		<div class="form-group">
+		    <div class="col-sm-5">
+		    	<label class="control-label">First Name</label>
+		    	<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
+		    	<input type="text" class="form-control" ng-model="employee.firstName" placeholder="First Name" required />
+		    </div>
+		    <div class="col-sm-2">
+		    	<label class="control-label">M.I. (optional)</label>
+		    	<input type="text" class="form-control" ng-model="employee.middleInitial" placeholder="Middle Initial" />
+		    </div>
+		    <div class="col-sm-5">
+		    	<label class="control-label">Last Name</label>
+		    	<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
+		    	<input type="text" class="form-control" ng-model="employee.lastName" placeholder="Last Name" required />
+		    </div>
+		</div>
 
-<form name="submitChanges" ng-submit="submitChanges(employee.id)">
-	<!-- can i bind to object property? employee.firstName -->
-	First Name: <input type="text" required placeholder="Enter first name" ng-model="firstName" />
-	<input type="submit" value="Submit">
-</form>
+		<div class="form-group">	
+		    <div class="col-sm-6">	    
+	    		<label class="control-label">E-mail</label>
+	    		<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
+	    		<input type="email" class="form-control" ng-model="employee.email" placeholder="Email Address" required/>
+			</div>
+			<div class="col-sm-6">
+				<label class="control-label">Phone Number (optional)</label>
+	    		<input type="number" class="form-control" ng-model="employee.phoneNumber" placeholder="Phone Number" />	
+			</div>
+		</div>
+
+		<label class="control-label">Address 1 (optional)</label>
+		<input type="text" class="form-control"  ng-model="employee.address1" placeholder="Address Line 1" />
+
+		<label class="control-label">Address 2 (optional)</label>
+		<input type="text" class="form-control" ng-model="employee.address2" placeholder="Address Line 2" />
+		
+
+		<div class="form-group">	
+		    <div class="col-sm-6">	    
+	    		<label class="control-label">City (optional)</label>
+				<input type="text" class="form-control" ng-model="employee.city" placeholder="City" />
+			</div>
+			<div class="col-sm-3">
+				<label class="control-label">State (optional)</label>
+				<select class="form-control" ng-model="employee.state">
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="DC">District Of Columbia</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+				</select>
+			</div>
+			<div class="col-sm-3">
+				<label class="control-label">Zipcode (optional)</label>
+				<input type="number" class="form-control" ng-model="employee.zipCode" placeholder="Zipcode" />
+			</div>
+		</div>
+
+	    <div class="form-group">	
+		    <div class="col-sm-6">	    
+				<label class="control-label">Position Category (optional)</label>
+				<select type="text" class="form-control" ng-model="employee.positionCategory">
+					<option>Indirect</option>
+					<option>Direct</option>
+					<option>Program Manager</option>
+					<option>Director</option>
+					<option>Executive</option>
+				</select>
+			</div>
+			<div class="col-sm-6">
+				<label class="control-label">Date Hired</label>
+				<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
+				<input type="date" class="form-control" ng-model="employee.dateHired" required/>
+			</div>
+		</div>
+
+		<div class="form-group col-sm-12">
+			<label class="control-label">Active</label>
+			<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
+			<input type="checkbox"  ng-model="employee.active" required/>
+		</div>
+
+		<div class="form-group col-sm-12">
+			<button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
+			<button type="submit" class="btn btn-default">Save</button>
+	    </div>
+	</form>
+</div>
