@@ -13,6 +13,9 @@ angular.module('simpleAngularAppApp')
     var employeeURI = $routeParams.employeeURI;
 
     var onEmployeeResponse = function(response) {
+      // Date not automatically converted from string to Date object
+      var dateHired = new Date(response.data.dateHired);
+      response.data.dateHired = dateHired;
       $scope.employee = response.data;
     };
 

@@ -1,10 +1,11 @@
 <div ng-controller="EmployeeCtrl" >
 	<div>{{ error }}</div>
 	<h2>Employee Details</h2>
-	<form novalidate class="form-horizontal" ng-submit="submit()" style="padding-bottom: 8em;" >
+	<form class="form-horizontal" ng-submit="submit()" style="padding-bottom: 8em;" >
 
 		<div class="form-group">
 		    <div class="col-sm-5">
+		    	<span class="glyphicon glyphicon-user" aria-hidden="false"></span>
 		    	<label class="control-label">First Name</label>
 		    	<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
 		    	<input type="text" class="form-control" ng-model="employee.firstName" placeholder="First Name" required />
@@ -22,16 +23,19 @@
 
 		<div class="form-group">	
 		    <div class="col-sm-6">	    
-	    		<label class="control-label">E-mail</label>
+		    	<span class="glyphicon glyphicon-envelope" aria-hidden="false"></span> 
+	    		<label class="control-label">E-mail Address</label>
 	    		<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
-	    		<input type="email" class="form-control" ng-model="employee.email" placeholder="Email Address" required/>
+	    		<input type="email" class="form-control" ng-model="employee.emailAddress" placeholder="Email Address" required />
 			</div>
 			<div class="col-sm-6">
+				<span class="glyphicon glyphicon-phone" aria-hidden="false"></span> 
 				<label class="control-label">Phone Number (optional)</label>
 	    		<input type="number" class="form-control" ng-model="employee.phoneNumber" placeholder="Phone Number" />	
 			</div>
 		</div>
 
+		<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span>
 		<label class="control-label">Address 1 (optional)</label>
 		<input type="text" class="form-control"  ng-model="employee.address1" placeholder="Address Line 1" />
 
@@ -107,7 +111,8 @@
 		</div>
 
 	    <div class="form-group">	
-		    <div class="col-sm-6">	    
+		    <div class="col-sm-6">	
+		    	<span class="glyphicon glyphicon-tag" aria-hidden="false"></span>    
 				<label class="control-label">Position Category (optional)</label>
 				<select type="text" class="form-control" ng-model="employee.positionCategory">
 					<option>Indirect</option>
@@ -118,6 +123,7 @@
 				</select>
 			</div>
 			<div class="col-sm-6">
+				<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span>
 				<label class="control-label">Date Hired</label>
 				<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
 				<input type="date" class="form-control" ng-model="employee.dateHired" required/>
@@ -125,7 +131,8 @@
 		</div>
 
 		<div class="form-group col-sm-12">
-			<label class="control-label">Active</label>
+			<span class="glyphicon glyphicon-check" aria-hidden="false"></span>
+			<label class="control-label">Active Flag</label>
 			<span class="glyphicon glyphicon-asterisk" style="color: #d9534f;" aria-hidden="false"></span>
 			<input type="checkbox"  ng-model="employee.active" required/>
 		</div>
