@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name simpleAngularAppApp.controller:MainCtrl
+ * @name simpleAngularAppApp.controller:TrashCtrl
  * @description
- * # MainCtrl
+ * # TrashCtrl
  * Controller of the simpleAngularAppApp
  */
+ // TODO this is very similar to main.js find a way to reuse functionality in Angular
 angular.module('simpleAngularAppApp')
-  .controller('MainCtrl', ["$scope", "$http", "$location", function ($scope,$http,$location) {
+  .controller('TrashCtrl', ["$scope", "$http", "$location", function ($scope,$http,$location) {
 
 	  var onEmployeeResponse = function(response) {
       $scope.employees = response.data._embedded.employees;
@@ -22,25 +23,19 @@ angular.module('simpleAngularAppApp')
       // TODO replace with environment specific url with some build tool
       // TODO for some reason this sends out 2 http GET requests, not going to bother with it now
       // console.log('loading employees');
-      $http.get("http://localhost:8080/employees/search/findByDeleted?deleted=false").then(onEmployeeResponse,onError);
+      $http.get("http://localhost:8080/employees/search/findByDeleted?deleted=true").then(onEmployeeResponse,onError);
     };
         
     $scope.repoSortOrder = "+firstName";
 
-    $scope.edit = function(employee){
-      var uriArray = employee._links.self.href.split('/');
-      $location.path('/employee/'+uriArray[uriArray.length-1]);
-    };
-
-    $scope.copy = function(employee){
-      var uriArray = employee._links.self.href.split('/');
-      $http.post('http://localhost:8080/employees/copy?id='+uriArray[uriArray.length-1]).then(loadEmployees,onError);
+    $scope.restore = function(employee){
+      employee.deleted=false;
+      $http.patch(employee._links.self.href,employee).then(loadEmployees,onError);
     };
 
     $scope.delete = function(employee){
-      // Soft delete
-      employee.deleted=true;
-      $http.patch(employee._links.self.href,employee).then(loadEmployees,onError);
+      // Hard delete
+      $http.delete(employee._links.self.href).then(loadEmployees,onError);
     };
 
     loadEmployees();

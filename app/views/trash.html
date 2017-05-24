@@ -1,4 +1,5 @@
-<div class="panel panel-default" ng-controller="MainCtrl">
+ <!-- Todo this is very similar to main.html, find a way to reuse it in Angular  -->
+<div class="panel panel-default" ng-controller="TrashCtrl">
   <div>{{ error }}</div>
   <div class="panel-heading">
     <span class="glyphicon glyphicon-th-list" aria-hidden="false"></span>
@@ -10,8 +11,7 @@
         <th>Name</th>
         <th>Phone Number</th>
         <th>Location</th>
-        <th>Edit</th>
-        <th>Copy</th>
+        <th>Restore</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -20,11 +20,8 @@
         <td>{{ employee.firstName + " " + employee.lastName }}</td>
         <td>{{ employee.phoneNumber }}</td>
         <td>{{ employee.city + ", " + employee.state }}</td>
-        <td ng-click="edit(employee)">
-          <span class="glyphicon glyphicon-edit" aria-hidden="false"></span>
-        </td>
-        <td ng-click="copy(employee)">
-          <span class="glyphicon glyphicon-duplicate" aria-hidden="false"></span>
+        <td ng-click="restore(employee)">
+          <span class="glyphicon glyphicon-repeat" aria-hidden="false"></span>
         </td>
         <td ng-click="delete(employee)">
           <span class="glyphicon glyphicon-trash" aria-hidden="false"></span>

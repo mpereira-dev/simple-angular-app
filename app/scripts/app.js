@@ -19,6 +19,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/trash', {
+        templateUrl: 'views/trash.html',
+        controller: 'TrashCtrl',
+        controllerAs: 'trash'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
