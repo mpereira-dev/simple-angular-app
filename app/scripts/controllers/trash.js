@@ -28,6 +28,10 @@ angular.module('simpleAngularAppApp')
         
     $scope.repoSortOrder = "+firstName";
 
+    $scope.emptyTrash = function(){
+      $http.delete("http://localhost:8080/employees/empty-trash").then(loadEmployees,onError);
+    };
+
     $scope.restore = function(employee){
       employee.deleted=false;
       $http.patch(employee._links.self.href,employee).then(loadEmployees,onError);
